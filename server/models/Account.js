@@ -1,18 +1,25 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const Value = new Schema({
-  title: {
+// constructor(data) {
+//   this._id = data._id
+//   this.name = data.name
+//   this.bio = data.bio
+//   this.imgUrl = data.imgUrl
+//   this.favorites = []
+//   this.posts = []
+
+const Account = new Schema({
+  name: {
     type: String,
     required: true
   },
-  description: {
+  bio: {
     type: String,
     required: true
   },
-  creatorId: {
+  imgUrl: {
     type: String,
-    ref: "Profile",
     required: true
   }
 }, {
@@ -22,11 +29,11 @@ const Value = new Schema({
   }
 });
 
-Value.virtual("creator", {
+Account.virtual("creator", {
   localField: "creatorId",
   ref: "Profile",
   foreignField: "_id",
   justOne: true
 });
 
-export default Value;
+export default Account;

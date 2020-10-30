@@ -7,21 +7,13 @@ import {
   Auth0Provider
 } from "@bcwdev/auth0provider";
 
-// constructor(data) {
-//   this.postId = data.postId
-//   this.creatorId = data.creatorId
-//   this.captionId = data.captionId
-//   this.imgUrl = data.imgUrl
-//   this.comments = []
-//   this.posts = 0
-// }
 
 export class PostsController extends BaseController {
   constructor() {
     super("api/posts");
     this.router
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getAll)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       // NOTE: Beyond this point all routes require Authorization tokens (the user must be logged in)
       .post("", this.create)
       .delete("/:postId", this.delete)
@@ -52,7 +44,7 @@ export class PostsController extends BaseController {
 
   async getMyPosts(req, res, next) {
     try {
-      return res.send(await postsService.getMyPosts(userId));
+      return res.send(await postsService.getMyPosts(req.userInfo.userId));
     } catch (error) {
       next(error);
     }
