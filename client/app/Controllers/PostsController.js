@@ -13,10 +13,33 @@ export default class PostsController {
     console.log("Hello from PostController");
   }
 
-  newPost() {
+  getFeed() {
+    try {
+      postsService.getFeed()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
+  editPost(e, id) {
+    e.preventDefault()
+    let form = e.target
+    let editedPost = {
+
+    }
+    form.reset()
+    postsService.editPost(editedPost)
 
   }
 
+  deletePost(id) {
+    try {
+      postsService.deletePost(id)
+    } catch (error) {
+      console.error(error)
+    }
+  }
   submitPost(e) {
     e.preventDefault()
     let form = e.target
