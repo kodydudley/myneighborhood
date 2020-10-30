@@ -8,7 +8,7 @@ class PostsService {
   }
   submitPost(newPost) {
     let temp = ProxyState.feed
-    temp.push(new Post(newPost))
+    temp.unshift(new Post(newPost))
     ProxyState.feed = temp
   }
 }
