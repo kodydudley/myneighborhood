@@ -1,12 +1,17 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const Value = new Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  description: {
+// constructor(data) {
+//   this.postId = data.postId
+//   this.creatorId = data.creatorId
+//   this.captionId = data.captionId
+//   this.imgUrl = data.imgUrl
+//   this.comments = []
+//   this.posts = 0
+// }
+
+const Post = new Schema({
+  postId: {
     type: String,
     required: true
   },
@@ -14,7 +19,15 @@ const Value = new Schema({
     type: String,
     ref: "Profile",
     required: true
-  }
+  },
+  captionId: {
+    type: String,
+    required: true
+  },
+  imgUrl: {
+    type: String,
+    required: true
+  },
 }, {
   timestamps: true,
   toJSON: {
@@ -22,11 +35,11 @@ const Value = new Schema({
   }
 });
 
-Value.virtual("creator", {
+Post.virtual("creator", {
   localField: "creatorId",
   ref: "Profile",
   foreignField: "_id",
   justOne: true
 });
 
-export default Value;
+export default Post;
