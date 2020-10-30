@@ -4,10 +4,17 @@ import {
 import {
   BadRequest
 } from "../utils/Errors";
+import Post from "../models/Post"
+
 
 class PostsService {
+  async edit(postId, body) {
+    return await dbContext.Posts.findByIdAndUpdate(postId, body)
+  }
   async getMyPosts(userId) {
-    return await dbContext.Posts.find(creatorId == userId)
+    return await dbContext.Posts.find({
+      creatorId: userId
+    })
   }
   async delete(postId) {
     let exists = await dbContext.Posts.findById(postId)
