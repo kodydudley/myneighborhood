@@ -8,6 +8,25 @@ export default class Comment {
 
   }
   get Template() {
-    return
+    return /*html*/`
+    <div class="row">
+    <div class="col-8">
+    <h4>
+    ${this.creatorId}
+    </h4>
+    </div>
+    <div class="col-4">
+    <button class="btn bg-transparent border-0">
+    X
+    </button>
+    </div>
+    
+    </div>
+    <div class="row">
+    <div class="col-12">
+    <p>${this.content}</p>
+    </div>
+    </div>
+    `
   }
 }

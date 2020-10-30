@@ -14,8 +14,26 @@ export default class Post {
     <div class="row m-3 shadow-lg">
       <img class="img-fluid" src="${this.imgUrl}" alt=""/>
       <h3>${this.caption}</h3>
+      <form onsubmit="app.commentController.addComment(event)">
+      <div class="form-group">
+      
+      <input type="text" name="content" id="" class="form-control" placeholder="Add a comment" aria-describedby="helpId">
+      
+      <button type="submit" class="btn btn-primary">Add Comment</button>
+      </div>
+      </form>
+      <div class="col-12" id="comments${this.postId}">
+${this.Comments}
+      </div>
     </div>
     </div>
     `
+  }
+
+  get Comments() {
+    let template = ''
+    let comments = this.comments
+    comments.forEach(c => template += c.Template)
+    return template
   }
 }

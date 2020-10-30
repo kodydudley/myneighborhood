@@ -15,7 +15,8 @@ class PostsService {
   }
   async getFeed() {
     let res = await api.get('posts')
-    ProxyState.posts = res.data.data.map(p => new Post(p))
+    console.log("get feed");
+    ProxyState.posts = res.data.map(p => new Post(p))
   }
 
   editPost(editedPost) {
