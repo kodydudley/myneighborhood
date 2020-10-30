@@ -28,11 +28,11 @@ const Post = new Schema({
     type: String,
     required: true
   },
-  Profile: {
-    type: String,
-    ref: "Profile",
-    required: true
-  }
+  // Profile: {
+  //   type: String,
+  //   ref: "Profile",
+  //   required: true
+  // }
 }, {
   timestamps: true,
   toJSON: {
