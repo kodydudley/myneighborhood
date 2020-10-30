@@ -52,7 +52,7 @@ export class PostsController extends BaseController {
   async create(req, res, next) {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
-      req.body.creatorEmail = req.userInfo.email;
+      // req.body.creatorEmail = req.userInfo.email;
       res.send(req.body);
     } catch (error) {
       next(error);
