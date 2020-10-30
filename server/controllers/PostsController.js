@@ -18,6 +18,7 @@ export class PostsController extends BaseController {
       .post("", this.create)
       .delete("/:postId", this.delete)
       .put("/:postId", this.edit)
+      .get("/:userId", this.getMyPosts)
   }
   async edit(req, res, next) {
     try {
