@@ -28,7 +28,7 @@ class PostsService {
     return "Your post has been deleted!"
   }
   async getAll(query = {}) {
-    return await dbContext.Posts.find(query);
+    return await dbContext.Posts.find(query).populate("creatorId");
   }
 }
 

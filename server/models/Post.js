@@ -11,14 +11,10 @@ const Schema = mongoose.Schema;
 // }
 
 const Post = new Schema({
-  postId: {
-    type: String,
-    // required: true
-  },
   creatorId: {
     type: String,
     ref: "Profile",
-    // required: true
+    required: true
   },
   caption: {
     type: String,
@@ -28,11 +24,6 @@ const Post = new Schema({
     type: String,
     required: true
   },
-  Account: {
-    type: String,
-    ref: "Account",
-    // required: true
-  }
 }, {
   timestamps: true,
   toJSON: {

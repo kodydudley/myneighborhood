@@ -45,7 +45,7 @@ export class PostsController extends BaseController {
 
   async getMyPosts(req, res, next) {
     try {
-      return res.send(await postsService.getMyPosts(req.userInfo.userId));
+      return res.send(await postsService.getMyPosts(req.params.userId));
     } catch (error) {
       next(error);
     }
@@ -53,7 +53,7 @@ export class PostsController extends BaseController {
   async create(req, res, next) {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
-      req.body.creatorId = req.userInfo.Id;
+      req.body.creatorId = req.userInfo.id;
       req.body.creatorEmail = req.userInfo.email;
       res.send(await postsService.create(req.body));
     } catch (error) {
