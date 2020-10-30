@@ -8,6 +8,9 @@ import Post from "../models/Post"
 
 
 class PostsService {
+  async create(body) {
+    return await dbContext.Posts.create(body)
+  }
   async edit(postId, body) {
     return await dbContext.Posts.findByIdAndUpdate(postId, body)
   }
