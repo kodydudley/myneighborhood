@@ -3,13 +3,13 @@ import { postsService } from "../Services/PostsService.js"
 export default class PostsController {
   _draw() {
     let template = ""
-    let feed = ProxyState.feed
-    feed.forEach(p => template += p.Template)
+    let posts = ProxyState.posts
+    posts.forEach(p => template += p.Template)
     document.getElementById("feed").innerHTML = template
   }
 
   constructor() {
-    ProxyState.on("feed", this._draw)
+    ProxyState.on("posts", this._draw)
     console.log("Hello from PostController");
   }
 

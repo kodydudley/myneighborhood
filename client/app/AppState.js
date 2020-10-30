@@ -7,7 +7,7 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   /** @type {Post[]} */
-  feed = []
+  posts = []
   user = {}
   profile = {}
   /** @type {Account[]} */

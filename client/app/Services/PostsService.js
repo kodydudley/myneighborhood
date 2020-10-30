@@ -9,22 +9,22 @@ class PostsService {
     this.getFeed()
   }
   deletePost(id) {
-    api.delete('/feed/' + id).then(res => {
+    api.delete('/posts/' + id).then(res => {
       this.getFeed()
     }).catch(err => console.error(err))
   }
   async getFeed() {
-    let res = await api.get('feed')
-    ProxyState.feed = res.data.map(p => new Post(p))
+    let res = await api.get('posts')
+    ProxyState.posts = res.data.map(p => new Post(p))
   }
 
   editPost(editedPost) {
-    api.put('/feed/' + editedPost._id, editedPost).then(res => {
+    api.put('/posts/' + editedPost._id, editedPost).then(res => {
       this.getFeed()
     }).catch(err => console.error(err))
   }
   submitPost(newPost) {
-    api.post("/feed", newPost).then(res =>
+    api.post("/posts", newPost).then(res =>
       this.getFeed()
     ).catch(err => console.error(err))
 
