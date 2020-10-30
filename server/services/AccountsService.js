@@ -4,18 +4,28 @@ import {
 import {
   BadRequest
 } from "../utils/Errors";
+import Account from "../models/Account"
+
 
 class AccountsService {
-  async find(query = {}) {
-    let accounts = await dbContext.Accounts.find(query);
-    return accounts;
+  async edit(accountId, body) {
+    return await dbContext.Accounts.findByIdAndUpdate(accountId, body)
   }
-  async findById(id) {
-    let account = await dbContext.Accounts.findById(id);
-    if (!account) {
-      throw new BadRequest("Invalid Id");
+  async getMyaccounts(userId) {
+    return await dbContext.Accounts.find({
+      creatorId: userId
+    })
+  }
+  async delete(accountId) {
+    let exists = await dbContext.Accounts.findById(accountId)
+    if (!exists) {
+      throw new BadRequest("This account does not exist!")
     }
-    return account;
+    await dbContext.Accounts.findByIdAndDelete(accountId)
+    return "Your account has been deleted!"
+  }
+  async getAll(query = {}) {
+    return await dbContext.Accounts.find(query);
   }
 }
 

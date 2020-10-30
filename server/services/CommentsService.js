@@ -4,18 +4,28 @@ import {
 import {
   BadRequest
 } from "../utils/Errors";
+import Comment from "../models/Comment"
+
 
 class CommentsService {
-  async getAll(query = {}) {
-    let comments = await dbContext.Comments.find(query);
-    return comments;
+  async edit(commentId, body) {
+    return await dbContext.Comments.findByIdAndUpdate(commentId, body)
   }
-  async getOne(id) {
-    let comment = await dbContext.Comments.findById(id);
-    if (!comment) {
-      throw new BadRequest("Invalid Id");
+  async getMycomments(userId) {
+    return await dbContext.Comments.find({
+      creatorId: userId
+    })
+  }
+  async delete(commentId) {
+    let exists = await dbContext.Comments.findById(commentId)
+    if (!exists) {
+      throw new BadRequest("This comment does not exist!")
     }
-    return comment;
+    await dbContext.Comments.findByIdAndDelete(commentId)
+    return "Your comment has been deleted!"
+  }
+  async getAll(query = {}) {
+    return await dbContext.Comments.find(query);
   }
 }
 
