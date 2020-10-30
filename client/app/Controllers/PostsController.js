@@ -10,6 +10,8 @@ export default class PostsController {
 
   constructor() {
     ProxyState.on("posts", this._draw)
+    ProxyState.on("comments", this._draw)
+
     console.log("Hello from PostController");
   }
 
