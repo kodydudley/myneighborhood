@@ -13,12 +13,12 @@ const Schema = mongoose.Schema;
 const Post = new Schema({
   postId: {
     type: String,
-    required: true
+    // required: true
   },
   creatorId: {
     type: String,
     ref: "Profile",
-    required: true
+    // required: true
   },
   caption: {
     type: String,
@@ -28,11 +28,11 @@ const Post = new Schema({
     type: String,
     required: true
   },
-  // Profile: {
-  //   type: String,
-  //   ref: "Profile",
-  //   required: true
-  // }
+  Account: {
+    type: String,
+    ref: "Account",
+    // required: true
+  }
 }, {
   timestamps: true,
   toJSON: {
