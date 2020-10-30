@@ -1,10 +1,14 @@
-import { Auth0Provider } from "@bcwdev/auth0provider";
-import { profilesService } from "../services/ProfilesService";
+import {
+  Auth0Provider
+} from "@bcwdev/auth0provider";
+import {
+  profilesService
+} from "../services/ProfilesService";
 import BaseController from "../utils/BaseController";
 
 export class ProfilesController extends BaseController {
   constructor() {
-    super("profile");
+    super("api/profile");
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserProfile)

@@ -20,7 +20,7 @@ const Post = new Schema({
     ref: "Profile",
     required: true
   },
-  captionId: {
+  caption: {
     type: String,
     required: true
   },
@@ -28,6 +28,11 @@ const Post = new Schema({
     type: String,
     required: true
   },
+  Profile: {
+    type: String,
+    ref: "Profile",
+    required: true
+  }
 }, {
   timestamps: true,
   toJSON: {
