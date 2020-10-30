@@ -36,7 +36,7 @@ export class PostsController extends BaseController {
   }
   async getAll(req, res, next) {
     try {
-      return res.send();
+      return res.send(await postsService.getAll());
     } catch (error) {
       next(error);
     }

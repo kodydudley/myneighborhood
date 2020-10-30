@@ -27,6 +27,10 @@ class CommentsService {
   async getAll(query = {}) {
     return await dbContext.Comments.find(query);
   }
+
+  async create(body) {
+    return await dbContext.Comments.create(body)
+  }
 }
 
 export const commentsService = new CommentsService();

@@ -11,7 +11,7 @@ class AccountsService {
   async edit(accountId, body) {
     return await dbContext.Accounts.findByIdAndUpdate(accountId, body)
   }
-  async getMyaccounts(userId) {
+  async getMyAccounts(userId) {
     return await dbContext.Accounts.find({
       creatorId: userId
     })
@@ -26,6 +26,10 @@ class AccountsService {
   }
   async getAll(query = {}) {
     return await dbContext.Accounts.find(query);
+  }
+
+  async create(body) {
+    return await dbContext.Accounts.create(body)
   }
 }
 
