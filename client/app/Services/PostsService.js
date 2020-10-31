@@ -10,7 +10,7 @@ class PostsService {
   }
   like(id, editedPost) {
     api.put('/posts/' + id, editedPost).then(res => {
-      debugger
+
       this.getFeed()
     }).catch(err => console.error(err))
   }
