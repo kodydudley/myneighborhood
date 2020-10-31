@@ -3,6 +3,11 @@ import Comment from "../Models/Comment.js"
 import { api } from "./AxiosService.js";
 
 class CommentsService {
+  delete(id) {
+    api.delete('/comments/' + id).then(res => {
+      this.getComments()
+    }).catch(err => console.error(err))
+  }
 
   constructor() {
     console.log("hellow from Comment Service");

@@ -13,6 +13,9 @@ export default class CommentsController {
 
   }
 
+  delete(id) {
+    commentsService.delete(id)
+  }
   addComment(event, postId) {
     event.preventDefault()
     let form = event.target
