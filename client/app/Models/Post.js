@@ -20,9 +20,9 @@ export default class Post {
 
         <img class="img-fluid radius-25 shadow" src="${this.imgUrl}" alt="">
         <h3>${this.caption}</h3>
-        <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button" data-toggle="collapse"
+        <button class="bg-transparent text-dark border-0 radius-25 p-2" type="button" data-toggle="collapse"
             data-target="#content-${this.postId}" aria-expanded="false" aria-controls="contentId">
-            Add comment
+            <i class="fas fa-comments fa-2x"></i>
         </button>
 
         <div class="collapse" id="content-${this.postId}">
@@ -33,7 +33,7 @@ export default class Post {
                     <input type="text" name="content" id="" class="radius-25 border-dark p-2 "
                         placeholder="Add a comment" aria-describedby="helpId" required>
 
-                    <button type="submit" class="btn btn-primary radius-25">+</button>
+                    <button type="submit" class="btn bg-transparent text-dark radius-25"><i class="fas fa-plus-circle fa-2x"></i></button>
                 </div>
             </form>
 
