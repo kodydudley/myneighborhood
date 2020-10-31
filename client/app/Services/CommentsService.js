@@ -7,29 +7,34 @@ import {
 } from "./AxiosService.js";
 
 class CommentsService {
+
+  constructor() {
+    console.log("hellow from Comment Service");
+
+
+  }
   delete(id) {
     api.delete('/comments/' + id).then(res => {
       this.getComments()
     }).catch(err => console.error(err))
   }
 
-  constructor() {
-    console.log("hellow from Comment Service");
-    this.getComments();
-    this.getPostComments = undefined;
-  }
-
   addComment(newComment) {
     api.post("/comments", newComment).then(res =>
-      this.getComments()
+      this.getPostComments()
 
     ).catch(err => console.error(err))
-
-
   }
-  getComments() {
-    api.get('/comments').then(res => {
+  // getComments() {
+  //   api.get('/comments').then(res => {
+  //     ProxyState.comments = res.data.map(c => new Comment(c))
+  //   }).catch(err => console.error(err))
+  // }
+
+  getPostComments(id) {
+    api.get('/posts/' + id + '/comments').then(res => {
       ProxyState.comments = res.data.map(c => new Comment(c))
+
     }).catch(err => console.error(err))
   }
 
