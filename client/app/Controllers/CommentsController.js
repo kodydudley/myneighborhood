@@ -9,16 +9,21 @@ export default class CommentsController {
   }
   constructor() {
     console.log("Hello from CommentsController");
+
+
   }
 
   addComment(event, postId) {
     event.preventDefault()
     let form = event.target
+
     let newComment = {
       content: form.content.value,
       postId
     }
+
     form.reset()
+
     commentsService.addComment(newComment)
   }
 

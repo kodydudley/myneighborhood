@@ -2,7 +2,7 @@
 export default class Comment {
   constructor(data) {
     this.commentId = data.commentId
-    this.creatorId = data.creatorId
+    this.creatorId = data.creator
     this.postId = data.postId
     this.content = data.content
 
@@ -25,7 +25,7 @@ export default class Comment {
     </div>
 
     <div class="row">
-    
+
     <div class="col-12">
     <p>${this.content}</p>
     </div>

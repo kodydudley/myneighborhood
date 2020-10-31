@@ -6,8 +6,8 @@ export default class Post {
     this.creatorId = data.creatorId
     this.caption = data.caption
     this.imgUrl = data.imgUrl
-    this.comments = []
-    this.posts = 0
+
+    this.likes = 0
   }
   get Template() {
     return /*html*/ `
@@ -31,7 +31,7 @@ export default class Post {
                 <div class="form-group">
 
                     <input type="text" name="content" id="" class="radius-25 border-dark p-2 "
-                        placeholder="Add a comment" aria-describedby="helpId">
+                        placeholder="Add a comment" aria-describedby="helpId" required>
 
                     <button type="submit" class="btn btn-primary radius-25">+</button>
                 </div>
