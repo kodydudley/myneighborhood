@@ -26,7 +26,7 @@ const Post = new Schema({
   },
   likes: {
     type: Number,
-    required: true
+    required: false
   },
 }, {
   timestamps: true,
