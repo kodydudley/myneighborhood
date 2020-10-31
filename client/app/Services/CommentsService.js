@@ -15,7 +15,7 @@ class CommentsService {
   }
   delete(id) {
     api.delete('/comments/' + id).then(res => {
-      this.getComments()
+      this.getPostComments()
     }).catch(err => console.error(err))
   }
 

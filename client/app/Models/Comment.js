@@ -2,7 +2,7 @@
 export default class Comment {
   constructor(data) {
     this.commentId = data._id
-    this.creatorId = data.creator
+    this.creatorId = data.creator.name
     this.postId = data.postId
     this.content = data.content
 
