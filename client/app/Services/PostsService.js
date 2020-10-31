@@ -8,6 +8,11 @@ class PostsService {
     console.log("hellow from Post Service");
     this.getFeed()
   }
+  like(id, editedPost) {
+    api.put('/posts/' + id, editedPost).then(res => {
+      this.getFeed()
+    }).catch(err => console.error(err))
+  }
   deletePost(id) {
     api.delete('/posts/' + id).then(res => {
       this.getFeed()

@@ -7,8 +7,7 @@ export default class Post {
     this.creatorId = data.creatorId
     this.caption = data.caption
     this.imgUrl = data.imgUrl
-
-    this.likes = 0
+    this.likes = data.likes || 0
   }
   get Template() {
     return /*html*/ `
@@ -16,8 +15,11 @@ export default class Post {
     <div class="col-2"></div>
     <div class="col-8">
 <div class="radius-25 my-3 shadow-lg px-3 d-flex flex-column justify-content-center">
-<div>${this.name}</div>
 <div class="d-flex justify-content-end">
+<h5 class="mr-auto pt-2">
+${this.name}
+</h5>
+
 <button class="btn bg-transparent text-danger"
 onclick="app.postsController.deletePost('${this.postId}')">
 <i class="fas fa-times-circle"></i>
@@ -31,14 +33,16 @@ onclick="app.postsController.deletePost('${this.postId}')">
         data-target="#content-${this.postId}" aria-expanded="false" aria-controls="contentId" onclick="app.commentsController.getPostComments('${this.postId}')">
         <i class="fas fa-comments fa-2x"></i>
         </button>
-<button class="bg-transparent text-dark border-0">
+<button class="bg-transparent text-dark border-0" onclick="app.postsController.like('${this.postId}')">
 <i class="far fa-heart fa-2x ml-1"></i>
 </button>
 <button class="bg-transparent text-dark border-0">
 <i class="fas fa-bookmark fa-2x ml-1"></i>
 </button>
         </div>
-
+<div class="row">
+<div class="col"><p>Likes: ${this.likes}</p></div>
+</div>
         
         <div class="row">
           <div class="col-12">
