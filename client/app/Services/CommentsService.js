@@ -11,7 +11,8 @@ class CommentsService {
 
   constructor() {
     console.log("hellow from Comment Service");
-    this.getComments()
+    this.getComments();
+    this.getPostComments = undefined;
   }
 
   addComment(newComment) {

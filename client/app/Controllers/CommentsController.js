@@ -13,6 +13,9 @@ export default class CommentsController {
 
   }
 
+  getPostComments(id) {
+    commentsService.getPostComments(id)
+  }
   delete(id) {
     commentsService.delete(id)
   }
