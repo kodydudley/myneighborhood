@@ -11,39 +11,40 @@ export default class Post {
   }
   get Template() {
     return /*html*/ `
+    <div class="row">
     <div class="col-2"></div>
-    <div class="col-8">
-    
+    <div class="col-8 radius-25 m-5 shadow-lg">
 
-      <div class="row m-3 shadow-lg p-3 radius-25">
-        <div class="col-12">
-            <button class="btn btn-danger close" onclick="app.postsController.deletePost('${this.postId}')">x</button>
-    
-            <img class="img-fluid" src="${this.imgUrl}" alt=""/>
-            <h3>${this.caption}</h3>
-            <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button" data-toggle="collapse" data-target="#content-${this.postId}" aria-expanded="false"
-        aria-controls="contentId">
-      Add comment
-             </button>
+        <button class="btn btn-danger close"
+            onclick="app.postsController.deletePost('${this.postId}')">x</button>
 
-              <div class="collapse" id="content-${this.postId}">
+        <img class="img-fluid" src="${this.imgUrl}" alt="">
+        <h3>${this.caption}</h3>
+        <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button" data-toggle="collapse"
+            data-target="#content-${this.postId}" aria-expanded="false" aria-controls="contentId">
+            Add comment
+        </button>
 
-              <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
+        <div class="collapse" id="content-${this.postId}">
+
+            <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
                 <div class="form-group">
-    
-                <input type="text" name="content" id="" class="radius-25 border-dark p-2 " placeholder="Add a comment" aria-describedby="helpId">
-    
-                <button type="submit" class="btn btn-primary radius-25">+</button>
+
+                    <input type="text" name="content" id="" class="radius-25 border-dark p-2 "
+                        placeholder="Add a comment" aria-describedby="helpId">
+
+                    <button type="submit" class="btn btn-primary radius-25">+</button>
                 </div>
-          </form>
-          <div class="row" id="comments${this.postId}">
-          ${this.Comments}
-          </div>
+            </form>
+
+            <div class="row" id="comments${this.postId}">
+                ${this.Comments}
+            </div>
+        </div>
     </div>
 
     <div class="col-2"></div>
-
-
+    </div>
     `
   }
 

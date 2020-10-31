@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
-
+                <h4>My Neighborhood</h4>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +28,8 @@
         </nav>
     </header>
     <main class="container-fluid overflow-auto">
+
+
         <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -60,64 +62,49 @@
             </div>
         </div>
 
-        <!-- // NOTE Feed -->
-        <div class="row" id="feed">
 
-            <div class="col-2"></div>
-            <div class="col-8">
+        <div class="row">
 
+            <!-- // NOTE Feed -->
+            <div class="col-12" id="feed">
 
-                <div class="row m-3 shadow-lg p-3 radius-25">
-                    <div class="col-12">
-                        <button class="btn btn-danger close"
-                            onclick="app.postsController.deletePost('${this.postId}')">x</button>
+                <div class="col-2"></div>
+                <div class="col-8 radius-25 m-5 shadow-lg">
 
-                        <img class="img-fluid" src="${this.imgUrl}" alt="">
-                        <h3>${this.caption}</h3>
-                        <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button"
-                            data-toggle="collapse" data-target="#content-${this.postId}" aria-expanded="false"
-                            aria-controls="contentId">
-                            Add comment
-                        </button>
+                    <button class="btn btn-danger close"
+                        onclick="app.postsController.deletePost('${this.postId}')">x</button>
 
-                        <div class="collapse" id="content-${this.postId}">
+                    <img class="img-fluid" src="${this.imgUrl}" alt="">
+                    <h3>${this.caption}</h3>
+                    <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button"
+                        data-toggle="collapse" data-target="#content-${this.postId}" aria-expanded="false"
+                        aria-controls="contentId">
+                        Add comment
+                    </button>
 
-                            <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
-                                <div class="form-group">
+                    <div class="collapse" id="content-${this.postId}">
 
-                                    <input type="text" name="content" id="" class="radius-25 border-dark p-2 "
-                                        placeholder="Add a comment" aria-describedby="helpId">
+                        <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
+                            <div class="form-group">
 
-                                    <button type="submit" class="btn btn-primary radius-25">+</button>
-                                </div>
-                            </form>
-                            <div class="row" id="comments${this.postId}">
-                                ${this.Comments}
+                                <input type="text" name="content" id="" class="radius-25 border-dark p-2 "
+                                    placeholder="Add a comment" aria-describedby="helpId">
+
+                                <button type="submit" class="btn btn-primary radius-25">+</button>
                             </div>
+                        </form>
+
+                        <div class="row" id="comments${this.postId}">
+                            ${this.Comments}
                         </div>
-
-                        <div class="col-2"></div>
-
-
-
-                    </div>
-
-                    <!-- //NOTE Loader add back with log in later -->
-                    <!-- <div class="col-5">
-                <div class="card p-2 skeleton-loader">
-                    <div class="card-title p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="skeleton-loader avatar"></div>
-                            <div class="skeleton-loader text mx-2"></div>
-                        </div>
-                    </div>
-                    <div class="card-body border-top">
-                        <div class="skeleton-loader text block"></div>
-                        <div class="skeleton-loader text block"></div>
-                        <div class="skeleton-loader text"></div>
                     </div>
                 </div>
-            </div> -->
+
+                <div class="col-2"></div>
+
+            </div>
+        </div>
+
     </main>
     <footer class="container-fluid bg-success text-light">
         <div class="row text-center">
