@@ -46,7 +46,7 @@ onclick="app.postsController.deletePost('${this.postId}')">
         
         <div class="" id="content-${this.postId}">
         <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
-        <div class="form form-inline">
+        <div class="">
         
         <input type="text" name="content" id="" class="radius-25 border-0 shadow p-2"
         placeholder="Add a comment" aria-describedby="helpId" required>
