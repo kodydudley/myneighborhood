@@ -19,14 +19,23 @@ class PostsService {
       creatorId: userId
     })
   }
-  async delete(postId) {
+  async delete(postId, userId) {
     let exists = await dbContext.Posts.findById(postId)
     if (!exists) {
       throw new BadRequest("This post does not exist!")
+    } else if (exists._doc.creatorId == userId) {
+      await dbContext.Posts.findByIdAndDelete(postId)
+      return "Your post has been deleted!"
     }
-    await dbContext.Posts.findByIdAndDelete(postId)
-    return "Your post has been deleted!"
   }
+
+  // let exists = await dbContext.Comments.findById(commentId)
+  // if (!exists) {
+  //   throw new BadRequest("This comment does not exist!")
+  // } else if (exists._doc.creator == userId) {
+  //   await dbContext.Comments.findByIdAndDelete(commentId)
+  //   return "Your comment has been deleted!"
+  // }
   async getAll(query = {}) {
     return await dbContext.Posts.find(query).populate("creatorId");
   }
