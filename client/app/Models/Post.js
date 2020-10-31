@@ -13,12 +13,12 @@ export default class Post {
     return /*html*/ `
     <div class="row">
     <div class="col-2"></div>
-    <div class="col-8 radius-25 m-5 shadow-lg">
-
+    <div class="col-8">
+<div class="radius-25 my-3 shadow-lg p-3">
         <button class="btn btn-danger close"
             onclick="app.postsController.deletePost('${this.postId}')">x</button>
 
-        <img class="img-fluid" src="${this.imgUrl}" alt="">
+        <img class="img-fluid radius-25 shadow" src="${this.imgUrl}" alt="">
         <h3>${this.caption}</h3>
         <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button" data-toggle="collapse"
             data-target="#content-${this.postId}" aria-expanded="false" aria-controls="contentId">
@@ -37,10 +37,15 @@ export default class Post {
                 </div>
             </form>
 
-            <div class="row" id="comments${this.postId}">
-                ${this.Comments}
+            
+        </div>
+        <div class="row">
+        <div class="col-12">
+        ${this.Comments}
+        </div>
             </div>
         </div>
+
     </div>
 
     <div class="col-2"></div>

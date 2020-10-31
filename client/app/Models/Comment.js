@@ -11,10 +11,11 @@ export default class Comment {
     return /*html*/`
     <div class="row">
     <div class="col-8">
-    <h4>
+    <h5>
     ${this.creatorId}
-    </h4>
+    </h5>
     </div>
+    
     <div class="col-4">
     <button class="btn bg-transparent border-0">
     X
@@ -22,10 +23,13 @@ export default class Comment {
     </div>
     
     </div>
+
     <div class="row">
+    
     <div class="col-12">
     <p>${this.content}</p>
     </div>
+
     </div>
     `
   }
