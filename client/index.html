@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/style/main.css">
-    <title>MyNeighborhood
-        hackathon... more like hecka fun!
+    <title>My Neighborhood
     </title>
 </head>
 
@@ -15,8 +14,7 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
-                <span class="ml-2">client</span>
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,13 +27,13 @@
             <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
         </nav>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid overflow-auto">
         <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Add a post</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -45,9 +43,9 @@
                             <div class="col">
                                 <form onsubmit="app.postsController.submitPost(event)">
                                     <div class="form-group">
-                                        <input type="text" name="imgUrl" id="" class="form-control"
+                                        <input type="text" name="imgUrl" id="" class="form-control m-2"
                                             placeholder="Add Img Url" aria-describedby="helpId">
-                                        <input type="text" name="caption" id="" class="form-control"
+                                        <input type="text" name="caption" id="" class="form-control m-2"
                                             placeholder="Add Caption" aria-describedby="helpId">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
@@ -56,8 +54,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+
                     </div>
                 </div>
             </div>
@@ -66,10 +63,47 @@
         <!-- // NOTE Feed -->
         <div class="row" id="feed">
 
-        </div>
+            <div class="col-2"></div>
+            <div class="col-8">
 
-        <!-- //NOTE Loader add back with log in later -->
-        <!-- <div class="col-5">
+
+                <div class="row m-3 shadow-lg p-3 radius-25">
+                    <div class="col-12">
+                        <button class="btn btn-danger close"
+                            onclick="app.postsController.deletePost('${this.postId}')">x</button>
+
+                        <img class="img-fluid" src="${this.imgUrl}" alt="">
+                        <h3>${this.caption}</h3>
+                        <button class="bg-transparent text-dark border-dark radius-25 p-2" type="button"
+                            data-toggle="collapse" data-target="#content-${this.postId}" aria-expanded="false"
+                            aria-controls="contentId">
+                            Add comment
+                        </button>
+
+                        <div class="collapse" id="content-${this.postId}">
+
+                            <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
+                                <div class="form-group">
+
+                                    <input type="text" name="content" id="" class="radius-25 border-dark p-2 "
+                                        placeholder="Add a comment" aria-describedby="helpId">
+
+                                    <button type="submit" class="btn btn-primary radius-25">+</button>
+                                </div>
+                            </form>
+                            <div class="row" id="comments${this.postId}">
+                                ${this.Comments}
+                            </div>
+                        </div>
+
+                        <div class="col-2"></div>
+
+
+
+                    </div>
+
+                    <!-- //NOTE Loader add back with log in later -->
+                    <!-- <div class="col-5">
                 <div class="card p-2 skeleton-loader">
                     <div class="card-title p-2">
                         <div class="d-flex align-items-center">
@@ -91,6 +125,11 @@
 
             </div>
             <!-- Button trigger modal -->
+
+
+
+
+
 
 
             <!-- Modal -->
