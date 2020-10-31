@@ -42,7 +42,8 @@ export class PostsController extends BaseController {
 
   async delete(req, res, next) {
     try {
-      res.send(await postsService.delete(req.params.postId))
+      let userId = req.userInfo.id
+      res.send(await postsService.delete(req.params.postId, userId))
     } catch (error) {
       next(error)
     }
