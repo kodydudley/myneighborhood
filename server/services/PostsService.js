@@ -29,13 +29,7 @@ class PostsService {
     }
   }
 
-  // let exists = await dbContext.Comments.findById(commentId)
-  // if (!exists) {
-  //   throw new BadRequest("This comment does not exist!")
-  // } else if (exists._doc.creator == userId) {
-  //   await dbContext.Comments.findByIdAndDelete(commentId)
-  //   return "Your comment has been deleted!"
-  // }
+
   async getAll(query = {}) {
     return await dbContext.Posts.find(query).populate("creatorId");
   }
