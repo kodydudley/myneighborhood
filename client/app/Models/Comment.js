@@ -1,8 +1,8 @@
 
 export default class Comment {
   constructor(data) {
-    this.commentId = data.commentId
-    this.creatorId = data.creatorId
+    this.commentId = data._id
+    this.creatorId = data.creator
     this.postId = data.postId
     this.content = data.content
 
@@ -16,16 +16,16 @@ export default class Comment {
     </h5>
     </div>
     
-    <div class="col-4">
-    <button class="btn bg-transparent border-0">
-    X
+    <div class="col-4 d-flex justify-content-end">
+    <button class="btn bg-transparent border-0" onclick="app.commentsController.delete('${this.commentId}')">
+    x
     </button>
     </div>
     
     </div>
 
     <div class="row">
-    
+
     <div class="col-12">
     <p>${this.content}</p>
     </div>
