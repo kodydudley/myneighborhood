@@ -7,7 +7,7 @@ export default class Comment {
     this.content = data.content
 
   }
-  get Template() {
+  get CommentTemplate() {
     return /*html*/`
     <div class="row">
     <div class="col-8">

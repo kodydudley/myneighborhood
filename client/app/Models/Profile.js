@@ -1,5 +1,5 @@
 
-export default class Account {
+export default class Profile {
   constructor(data) {
     this._id = data._id
     this.name = data.name

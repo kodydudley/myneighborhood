@@ -15,8 +15,8 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
-                <span class="ml-2">client</span>
+
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,13 +29,13 @@
             <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
         </nav>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid overflow-auto">
         <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">New Post</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -45,23 +45,23 @@
                             <div class="col">
                                 <form onsubmit="app.postsController.submitPost(event)">
                                     <div class="form-group">
-                                        <input type="text" name="imgUrl" id="" class="form-control"
-                                            placeholder="Add Img Url" aria-describedby="helpId">
-                                        <input type="text" name="caption" id="" class="form-control"
-                                            placeholder="Add Caption" aria-describedby="helpId">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <input type="text" name="imgUrl" id="" class="form-control p-3"
+                                            placeholder="Add Image" aria-describedby="helpId" required>
+
+
+                                        <input type="text" name="caption" id="" class="form-control my-2"
+                                            placeholder="Add Caption" aria-describedby="helpId" required>
+                                        <button type="submit" class="btn btn-primary m-2">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
-                    </div>
+
                 </div>
             </div>
         </div>
+
 
         <!-- // NOTE Feed -->
         <div class="row" id="feed">

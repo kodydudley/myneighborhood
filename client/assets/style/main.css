@@ -5,6 +5,19 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+main {
+  height: 80vh;
+}
+
+.radius-25 {
+  border-radius: 25px;
+}
+
+.post-image {
+  height: 75%;
+  background-size: contain;
+}
 :root {
   --blue: blue;
   --indigo: indigo;
