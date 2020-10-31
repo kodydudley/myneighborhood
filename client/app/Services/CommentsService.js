@@ -10,13 +10,10 @@ class CommentsService {
   }
 
   addComment(newComment) {
+
     api.post("/comments", newComment).then(res =>
       this.getComments()
     ).catch(err => console.error(err))
-
-    // let temp = ProxyState.feed
-    // temp.unshift(new Post(newPost))
-    // ProxyState.feed = temp
   }
   getComments() {
     api.get('/comments').then(res => {

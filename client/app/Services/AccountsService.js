@@ -1,5 +1,5 @@
 import { ProxyState } from "../AppState.js"
-import Account from "../Models/Account.js"
+import Account from "../Models/Profile.js"
 
 class AccountsService {
   constructor() {

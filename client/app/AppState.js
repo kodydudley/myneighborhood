@@ -1,4 +1,4 @@
-import Account from "./Models/Account.js"
+import Account from "./Models/Profile.js"
 import Comment from "./Models/Comment.js"
 import Post from "./Models/Post.js"
 import Value from "./Models/Value.js"
