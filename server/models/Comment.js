@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-const ObjectId = mongoose.Types.ObjectId
+const ObjectId = Schema.Types.ObjectId
 
 // constructor(data) {
 //   this.commentId = data.commentId
