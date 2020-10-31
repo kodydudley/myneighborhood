@@ -15,7 +15,8 @@ class CommentsService {
 
   constructor() {
     console.log("hellow from Comment Service");
-    this.getComments()
+    this.getComments();
+    this.getPostComments = undefined;
   }
 
   addComment(newComment) {
@@ -24,9 +25,7 @@ class CommentsService {
 
     ).catch(err => console.error(err))
 
-    // let temp = ProxyState.feed
-    // temp.unshift(new Post(newPost))
-    // ProxyState.feed = temp
+
   }
   getComments() {
     api.get('/comments').then(res => {
