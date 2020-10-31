@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import ValueSchema from "../models/Value";
 import ProfileSchema from "../models/Profile";
-import AccountSchema from "../models/Account";
+import AccountSchema from "../models/Profile";
 import CommentSchema from "../models/Comment";
 import PostSchema from "../models/Post";
 
