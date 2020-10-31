@@ -1,7 +1,17 @@
-import { ProxyState } from '../AppState.js'
-import { audience, clientId, domain } from '../AuthConfig.js'
-import { api } from './AxiosService.js'
-import { profileService } from './ProfileService.js'
+import {
+  ProxyState
+} from '../AppState.js'
+import {
+  audience,
+  clientId,
+  domain
+} from '../AuthConfig.js'
+import {
+  api
+} from './AxiosService.js'
+import {
+  profileService
+} from './ProfileService.js'
 
 export const AuthService = Auth0Provider.initialize({
   domain,
@@ -9,9 +19,9 @@ export const AuthService = Auth0Provider.initialize({
   audience,
   onRedirectCallback: appState => {
     window.location.replace(
-      appState && appState.targetUrl
-        ? appState.targetUrl
-        : window.location.pathname
+      appState && appState.targetUrl ?
+      appState.targetUrl :
+      window.location.pathname
     )
   }
 })
