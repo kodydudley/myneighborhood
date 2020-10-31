@@ -1,5 +1,9 @@
-import { ProxyState } from "../AppState.js"
-import { commentsService } from "../Services/CommentsService.js"
+import {
+  ProxyState
+} from "../AppState.js"
+import {
+  commentsService
+} from "../Services/CommentsService.js"
 import Post from '../Models/Post.js'
 
 
@@ -22,7 +26,7 @@ export default class CommentsController {
 
     let newComment = {
       content: form.content.value,
-      postId
+      postId: postId
     }
 
     form.reset()
