@@ -14,13 +14,14 @@ class CommentsService {
   async edit(commentId, body) {
     return await dbContext.Comments.findByIdAndUpdate(commentId, body)
   }
-  async delete(commentId) {
+  async delete(commentId, userId) {
     let exists = await dbContext.Comments.findById(commentId)
     if (!exists) {
       throw new BadRequest("This comment does not exist!")
+    } else if (exists._doc.creator == userId) {
+      await dbContext.Comments.findByIdAndDelete(commentId)
+      return "Your comment has been deleted!"
     }
-    await dbContext.Comments.findByIdAndDelete(commentId)
-    return "Your comment has been deleted!"
   }
   async getAll(postId) {
     return await dbContext.Comments.find({
