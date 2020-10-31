@@ -2,7 +2,7 @@ import { ProxyState } from "../AppState.js"
 
 export default class Post {
   constructor(data) {
-    this.postId = data.postId
+    this.postId = data._id
     this.creatorId = data.creatorId
     this.caption = data.caption
     this.imgUrl = data.imgUrl
@@ -15,7 +15,7 @@ export default class Post {
     <div class="row m-3 shadow-lg">
       <img class="img-fluid" src="${this.imgUrl}" alt=""/>
       <h3>${this.caption}</h3>
-      <form onsubmit="app.commentsController.addComment(event)">
+      <form onsubmit="app.commentsController.addComment(event, '{$this.postId}')">
       <div class="form-group">
       
       <input type="text" name="content" id="" class="form-control" placeholder="Add a comment" aria-describedby="helpId">
