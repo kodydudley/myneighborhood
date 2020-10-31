@@ -41,7 +41,7 @@ onclick="app.postsController.deletePost('${this.postId}')">
 </button>
         </div>
 <div class="row">
-<div class="col"><p>Likes: ${this.likes}</p></div>
+<div class="col"><h6 class="ml-5">likes: ${this.likes}</h6></div>
 </div>
         
         <div class="row">

@@ -27,7 +27,7 @@ export default class Comment {
     <div class="row">
 
     <div class="col-12">
-    <p>${this.content}</p>
+    <p class="ml-2">${this.content}</p>
     </div>
 
     </div>
