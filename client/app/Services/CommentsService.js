@@ -13,15 +13,17 @@ class CommentsService {
 
 
   }
-  delete(id) {
+  delete(id, postId) {
     api.delete('/comments/' + id).then(res => {
+      this.getPostComments(postId)
 
     }).catch(err => console.error(err))
   }
 
-  addComment(newComment) {
+  addComment(newComment, id) {
     api.post("/comments", newComment).then(res =>
-      this.getPostComments()
+      this.getPostComments(id)
+
 
     ).catch(err => console.error(err))
   }
@@ -32,6 +34,8 @@ class CommentsService {
   // }
 
   getPostComments(id) {
+
+    console.log(id)
     api.get('/posts/' + id + '/comments').then(res => {
       ProxyState.comments = res.data.map(c => new Comment(c))
 

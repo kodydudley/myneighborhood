@@ -41,22 +41,22 @@ onclick="app.postsController.deletePost('${this.postId}')">
 
         
         <div class="row">
-        <div class="col-12">
-        ${this.Comments}
+          <div class="col-12">
+         ${this.Comments}
         </div>
         <div class="col-12">
         
         <div class="" id="content-${this.postId}">
         <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
-        <div class="">
-        
-        <input type="text" name="content" id="" class="radius-25 border-0 shadow p-2"
+
+        <div class="d-flex">
+        <input type="text" name="content" id="" class="radius-25 border-0 shadow p-2 w-100"
         placeholder="Add a comment" aria-describedby="helpId" required>
         
-        <button type="submit" class="btn bg-transparent text-dark radius-25"><i class="fas fa-plus-circle fa-2x"></i></button>
-        </div>
+        <button type="submit" class="btn bg-transparent text-dark"><i class="fas fa-plus-circle fa-2x"></i></button>
+
         </form>
-        
+        </div>
         </div>
             
         

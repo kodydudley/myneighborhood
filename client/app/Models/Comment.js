@@ -17,7 +17,7 @@ export default class Comment {
     </div>
     
     <div class="col-4 d-flex justify-content-end">
-    <button class="btn bg-transparent border-0" onclick="app.commentsController.delete('${this.commentId}')">
+    <button class="btn bg-transparent border-0" onclick="app.commentsController.delete('${this.commentId}', '${this.postId}')">
     x
     </button>
     </div>

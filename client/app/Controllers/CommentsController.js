@@ -8,9 +8,7 @@ import Post from '../Models/Post.js'
 
 
 export default class CommentsController {
-  _draw() {
 
-  }
   constructor() {
     console.log("Hello from CommentsController");
   }
@@ -18,8 +16,8 @@ export default class CommentsController {
   getPostComments(id) {
     commentsService.getPostComments(id)
   }
-  delete(id) {
-    commentsService.delete(id)
+  delete(id, postId) {
+    commentsService.delete(id, postId)
   }
   addComment(event, postId) {
     event.preventDefault()
@@ -32,7 +30,7 @@ export default class CommentsController {
 
     form.reset()
 
-    commentsService.addComment(newComment)
+    commentsService.addComment(newComment, postId)
   }
 
 }
