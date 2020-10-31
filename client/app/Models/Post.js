@@ -43,20 +43,21 @@ onclick="app.postsController.deletePost('${this.postId}')">
         ${this.Comments}
         </div>
         <div class="col-12">
-        <div class="collapse" id="content-${this.postId}">
-
-            <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
-                <div class="form-group">
-
-                    <input type="text" name="content" id="" class="radius-25 border-dark p-2"
-                        placeholder="Add a comment" aria-describedby="helpId" required>
-
-                    <button type="submit" class="btn bg-transparent text-dark radius-25"><i class="fas fa-plus-circle fa-2x"></i></button>
-                </div>
-            </form>
-
-            
+        
+        <div class="" id="content-${this.postId}">
+        <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
+        <div class="form-group">
+        
+        <input type="text" name="content" id="" class="radius-25 border-dark p-2"
+        placeholder="Add a comment" aria-describedby="helpId" required>
+        
+        <button type="submit" class="btn bg-transparent text-dark radius-25"><i class="fas fa-plus-circle fa-2x"></i></button>
         </div>
+        </form>
+        
+        </div>
+            
+        
         
         </div>
             </div>

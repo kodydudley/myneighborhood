@@ -9,8 +9,6 @@ export default class CommentsController {
   }
   constructor() {
     console.log("Hello from CommentsController");
-
-
   }
 
   getPostComments(id) {
