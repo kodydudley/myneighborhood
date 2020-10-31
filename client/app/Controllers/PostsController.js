@@ -20,11 +20,12 @@ export default class PostsController {
   }
 
   like(id) {
+
     let temp = ProxyState.posts
     let editedPost = temp.find(p => p.postId == id)
     editedPost.likes++
     ProxyState.posts = temp
-    postsService.like(id, temp)
+    postsService.like(id, editedPost)
   }
   getFeed() {
     try {
