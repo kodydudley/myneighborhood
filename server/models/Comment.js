@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Types.ObjectId
 
 // constructor(data) {
 //   this.commentId = data.commentId
@@ -10,18 +11,20 @@ const Schema = mongoose.Schema;
 // }
 
 const Comment = new Schema({
-  commentId: {
+  creator: {
     type: String,
-    required: true
+    required: true,
+    ref: "Profile"
   },
-  creatorId: {
+  content: {
     type: String,
-    required: true
+    required: true,
   },
   postId: {
-    type: String,
-    required: true
-  }
+    type: ObjectId,
+    required: true,
+    ref: "Post"
+  },
 }, {
   timestamps: true,
   toJSON: {
@@ -29,11 +32,5 @@ const Comment = new Schema({
   }
 });
 
-Comment.virtual("creator", {
-  localField: "creatorId",
-  ref: "Profile",
-  foreignField: "_id",
-  justOne: true
-});
 
 export default Comment;

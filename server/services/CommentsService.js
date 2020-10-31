@@ -8,13 +8,11 @@ import Comment from "../models/Comment"
 
 
 class CommentsService {
+  async create(body) {
+    return await dbContext.Comments.create(body)
+  }
   async edit(commentId, body) {
     return await dbContext.Comments.findByIdAndUpdate(commentId, body)
-  }
-  async getMycomments(userId) {
-    return await dbContext.Comments.find({
-      creatorId: userId
-    })
   }
   async delete(commentId) {
     let exists = await dbContext.Comments.findById(commentId)
@@ -24,12 +22,10 @@ class CommentsService {
     await dbContext.Comments.findByIdAndDelete(commentId)
     return "Your comment has been deleted!"
   }
-  async getAll(query = {}) {
-    return await dbContext.Comments.find(query);
-  }
-
-  async create(body) {
-    return await dbContext.Comments.create(body)
+  async getAll(postId) {
+    return await dbContext.Comments.find({
+      postId: postId
+    }).populate("creator")
   }
 }
 
