@@ -14,7 +14,7 @@ export default class Post {
     <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-<div class="radius-25 my-3 shadow-lg px-3">
+<div class="radius-25 my-3 shadow-lg px-3 d-flex flex-column justify-content-center">
 <div class="d-flex justify-content-end">
 <button class="btn bg-transparent text-danger"
 onclick="app.postsController.deletePost('${this.postId}')">
@@ -46,9 +46,9 @@ onclick="app.postsController.deletePost('${this.postId}')">
         
         <div class="" id="content-${this.postId}">
         <form class="py-3" onsubmit="app.commentsController.addComment(event, '${this.postId}')">
-        <div class="form-group">
+        <div class="form form-inline">
         
-        <input type="text" name="content" id="" class="radius-25 border-dark p-2"
+        <input type="text" name="content" id="" class="radius-25 border-0 shadow p-2"
         placeholder="Add a comment" aria-describedby="helpId" required>
         
         <button type="submit" class="btn bg-transparent text-dark radius-25"><i class="fas fa-plus-circle fa-2x"></i></button>

@@ -21,18 +21,18 @@ class CommentsService {
 
   addComment(newComment) {
     api.post("/comments", newComment).then(res =>
-      this.getComments()
+      this.getPostComments()
 
     ).catch(err => console.error(err))
   }
-  getComments() {
-    api.get('/comments').then(res => {
-      ProxyState.comments = res.data.map(c => new Comment(c))
-    }).catch(err => console.error(err))
-  }
+  // getComments() {
+  //   api.get('/comments').then(res => {
+  //     ProxyState.comments = res.data.map(c => new Comment(c))
+  //   }).catch(err => console.error(err))
+  // }
 
   getPostComments(id) {
-    api.get('/posts/' + id + 'comments').then(res => {
+    api.get('/posts/' + id + '/comments').then(res => {
       ProxyState.comments = res.data.map(c => new Comment(c))
 
     }).catch(err => console.error(err))
