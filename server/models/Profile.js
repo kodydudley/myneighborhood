@@ -1,16 +1,55 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const Profile = new Schema(
-  {
-    subs: [{ type: String, unique: true }],
-    _id: { type: String, required: true },
-    email: { type: String, lowercase: true, unique: true },
-    name: { type: String, required: true },
-    picture: { type: String }
-    // NOTE If you wish to add additional public properties for profiles do so here
+// constructor(data) {
+//   this._id = data._id
+//   this.name = data.name
+//   this.bio = data.bio
+//   this.imgUrl = data.imgUrl
+//   this.favorites = []
+//   this.posts = []
+
+const Profile = new Schema({
+  name: {
+    type: String,
+    required: true
   },
-  { timestamps: true, _id: false, toJSON: { virtuals: true } }
-);
+  bio: {
+    type: String,
+    required: true
+  },
+  imgUrl: {
+    type: String,
+    required: true
+  },
+  subs: [{
+    type: String,
+    unique: true
+  }],
+  _id: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    lowercase: true,
+    unique: true
+  },
+  picture: {
+    type: String
+  }
+}, {
+  timestamps: true,
+  toJSON: {
+    virtuals: true
+  }
+});
+
+Profile.virtual("creator", {
+  localField: "creatorId",
+  ref: "Profile",
+  foreignField: "_id",
+  justOne: true
+});
 
 export default Profile;
